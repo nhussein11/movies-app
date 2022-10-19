@@ -11,9 +11,24 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-      { label: 'Home', icon: 'bi bi-house-door' },
-      { label: 'Movies', icon: 'bi bi-film' },
-      { label: 'Series', icon: 'bi bi-tv' },
+      {
+        label: 'Home',
+        icon: 'bi bi-house-door',
+        replaceUrl: true,
+        routerLink: '/home',
+      },
+      {
+        label: 'Movies',
+        icon: 'bi bi-film',
+        replaceUrl: true,
+        routerLink: '/movies',
+      },
+      {
+        label: 'Series',
+        icon: 'bi bi-tv',
+        replaceUrl: true,
+        routerLink: '/series',
+      },
     ]
   }
 }
