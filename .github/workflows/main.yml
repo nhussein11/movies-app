@@ -1,18 +1,27 @@
-name: CI Angular app through GitHub Actions
-on: push
+name: Angular CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
 jobs:
-  unit-tests:
+  build:
+
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
     steps:
-      - name: Clone
-        uses: actions/checkout@v2
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-
-      - name: Setup
-        run: npm ci
-
-      - name: Test
-        run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm run lint
+    - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
+    - run: npm run build
