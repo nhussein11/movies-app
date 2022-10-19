@@ -8,6 +8,9 @@ import { EffectsModule } from '@ngrx/effects'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
 import { SharedModule } from './shared/shared.module'
+import { HomeModule } from './home/home.module'
+import { MoviesModule } from './movies/movies.module'
+import { SeriesModule } from './series/series.module'
 
 @NgModule({
   declarations: [AppComponent],
