@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
+import { TabMenuModule } from 'primeng/tabmenu'
 
 @NgModule({
-  exports: [],
+  exports: [TabMenuModule],
 })
 export class PrimengModule {}
