@@ -4,7 +4,10 @@ import { Store } from '@ngrx/store'
 import { map, Observable, tap } from 'rxjs'
 import { retrievedMoviesList } from 'src/app/state/actions/movies.actions'
 import { environment } from 'src/environments/environment'
-import { ApiResponse as ApiResponse, Movie } from '../models/movie.model'
+import {
+  ApiResponse as ApiResponse,
+  Movie,
+} from '../../shared/models/api.model'
 
 @Injectable({
   providedIn: 'root',
