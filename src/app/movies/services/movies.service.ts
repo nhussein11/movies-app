@@ -1,19 +1,27 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
+import { Store } from '@ngrx/store'
 import { map, Observable, tap } from 'rxjs'
-import { ApiResopnse, Movie } from '../models/movie.model'
+import { retrievedMoviesList } from 'src/app/state/actions/movies.actions'
+import { environment } from 'src/environments/environment'
+import { ApiResponse as ApiResponse, Movie } from '../models/movie.model'
 
 @Injectable({
   providedIn: 'root',
 })
 export class MoviesService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient, private store: Store) {}
 
-  getMovies(): Observable<Movie[]> {
+  getMovies() {
     return this._http
-      .get<ApiResopnse>(
-        'https://api.themoviedb.org/3/movie/popular?api_key=1f54bd990f1cdfb230adb312546d765d&language=en-US&page=1'
+      .get<ApiResponse>(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${environment.apiKey}&language=en-US&page=1`
       )
-      .pipe(map((data: ApiResopnse) => data.results))
+      .pipe(
+        tap((data: ApiResponse) => {
+          console.log(data.results)
+          this.store.dispatch(retrievedMoviesList({ movies: data.results }))
+        })
+      )
   }
 }
