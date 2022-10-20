@@ -3,7 +3,9 @@
   <div *ngFor="let movie of movies">
     <ul>
       <li>{{ movie.title }}</li>
-      <img src="https://image.tmdb.org/t/p/w300{{movie.backdrop_path}}" alt="">
+      <img
+        src="https://image.tmdb.org/t/p/w300{{ movie.backdrop_path }}"
+        alt="" />
     </ul>
   </div>
 </ng-container>

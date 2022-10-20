@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
+import { Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
+import { selectMovies } from '../state/selectors/movies.selectors'
 import { Movie } from './models/movie.model'
 import { MoviesService } from './services/movies.service'
 
@@ -9,11 +11,11 @@ import { MoviesService } from './services/movies.service'
   styleUrls: ['./movies.component.css'],
 })
 export class MoviesComponent implements OnInit {
-  movies$!: Observable<Movie[]>
-  constructor(private _moviesService: MoviesService) {}
+  movies$!: Observable<ReadonlyArray<Movie>>
+  constructor(private _moviesService: MoviesService, private store: Store) {}
 
   ngOnInit() {
-    console.log('on movies')
-    this.movies$ = this._moviesService.getMovies()
+    this._moviesService.getMovies().subscribe()
+    this.movies$ = this.store.select(selectMovies)
   }
 }
