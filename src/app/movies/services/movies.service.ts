@@ -17,11 +17,6 @@ export class MoviesService {
       .get<ApiResponse>(
         `https://api.themoviedb.org/3/movie/popular?api_key=${environment.apiKey}&language=en-US&page=1`
       )
-      .pipe(
-        tap((data: ApiResponse) => {
-          console.log(data.results)
-          this.store.dispatch(retrievedMoviesList({ movies: data.results }))
-        })
-      )
+      .pipe(map((data: ApiResponse) => data.results))
   }
 }
