@@ -8,17 +8,15 @@ import { EffectsModule } from '@ngrx/effects'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
 import { SharedModule } from './shared/shared.module'
-import { HomeModule } from './home/home.module'
-import { MoviesModule } from './movies/movies.module'
-import { SeriesModule } from './series/series.module'
 import { HttpClientModule } from '@angular/common/http'
+import { ROOT_REDUCERS } from './state/app.state'
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
