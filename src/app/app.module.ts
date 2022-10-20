@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module'
 import { HttpClientModule } from '@angular/common/http'
 import { ROOT_REDUCERS } from './state/app.state'
 import { MovieEffects } from './state/effects/movies.effects'
+import { SerieEffects } from './state/effects/series.effects'
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +19,7 @@ import { MovieEffects } from './state/effects/movies.effects'
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([MovieEffects]),
+    EffectsModule.forRoot([MovieEffects, SerieEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
