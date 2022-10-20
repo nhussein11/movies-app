@@ -5,7 +5,7 @@ export const loadSeries = createAction('[Series Page] Load Series')
 
 export const retrieveSeriesList = createAction(
   '[Series API] Retrieve Series Success',
-  props<{ movies: ReadonlyArray<Serie> }>()
+  props<{ series: ReadonlyArray<Serie> }>()
 )
 
 export const errorLoadingSeries = createAction(
