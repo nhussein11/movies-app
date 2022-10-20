@@ -3,8 +3,7 @@ import { Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
 import { selectMovies } from '../state/selectors/movies.selectors'
 import { Movie } from './models/movie.model'
-import { MoviesService } from './services/movies.service'
-
+import * as MoviesActions from '../state/actions/movies.actions'
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
@@ -12,10 +11,10 @@ import { MoviesService } from './services/movies.service'
 })
 export class MoviesComponent implements OnInit {
   movies$!: Observable<ReadonlyArray<Movie>>
-  constructor(private _moviesService: MoviesService, private store: Store) {}
+  constructor(private store: Store) {}
 
   ngOnInit() {
-    this._moviesService.getMovies().subscribe()
+    this.store.dispatch(MoviesActions.loadMovies())
     this.movies$ = this.store.select(selectMovies)
   }
 }
