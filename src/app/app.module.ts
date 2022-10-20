@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module'
 import { HomeModule } from './home/home.module'
 import { MoviesModule } from './movies/movies.module'
 import { SeriesModule } from './series/series.module'
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { SeriesModule } from './series/series.module'
       logOnly: environment.production,
     }),
     SharedModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
