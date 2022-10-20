@@ -13,13 +13,13 @@ import {
   providedIn: 'root',
 })
 export class MoviesService {
-  constructor(private _http: HttpClient, private store: Store) {}
+  constructor(private _http: HttpClient) {}
 
-  getMovies() {
+  getMovies(): Observable<Movie[]> {
     return this._http
       .get<ApiResponse>(
         `https://api.themoviedb.org/3/movie/popular?api_key=${environment.apiKey}&language=en-US&page=1`
       )
-      .pipe(map((data: ApiResponse) => data.results))
+      .pipe(map((data: ApiResponse) => data.results as Movie[]))
   }
 }
