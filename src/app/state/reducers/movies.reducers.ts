@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store'
-import { Movie } from 'src/app/movies/models/movie.model'
+import { Movie } from 'src/app/shared/models/api.model'
 import * as MoviesActions from '../actions/movies.actions'
 
 export const initialState: ReadonlyArray<Movie> = []
