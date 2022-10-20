@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
 import { selectMovies } from '../state/selectors/movies.selectors'
-import { Movie } from './models/movie.model'
+import { Movie } from '../shared/models/api.model'
 import * as MoviesActions from '../state/actions/movies.actions'
 @Component({
   selector: 'app-movies',

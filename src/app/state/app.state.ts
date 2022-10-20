@@ -1,5 +1,5 @@
 import { ActionReducerMap } from '@ngrx/store'
-import { Movie } from '../movies/models/movie.model'
+import { Movie } from '../shared/models/api.model'
 import { moviesReducer } from './reducers/movies.reducers'
 
 export interface AppState {
