@@ -10,6 +10,7 @@ import { environment } from '../environments/environment'
 import { SharedModule } from './shared/shared.module'
 import { HttpClientModule } from '@angular/common/http'
 import { ROOT_REDUCERS } from './state/app.state'
+import { MovieEffects } from './state/effects/movies.effects'
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,7 @@ import { ROOT_REDUCERS } from './state/app.state'
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([MovieEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
