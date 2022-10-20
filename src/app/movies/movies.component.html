@@ -1,3 +1,9 @@
-<p>
-  movies works!
-</p>
+<!-- Show movies from movies$ -->
+<ng-container *ngIf="movies$ | async as movies">
+  <div *ngFor="let movie of movies">
+    <ul>
+      <li>{{ movie.title }}</li>
+      <img src="https://image.tmdb.org/t/p/w300{{movie.backdrop_path}}" alt="">
+    </ul>
+  </div>
+</ng-container>
