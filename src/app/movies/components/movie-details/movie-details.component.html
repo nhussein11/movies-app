@@ -1,10 +1,23 @@
 <ng-container *ngIf="movie$ | async as movie">
   <p-card
     header="{{ movie.title }}"
-    subheader="{{ movie.popularity  }}"
-    [style]="{ width: '250px' }"
+    subheader="Overview: {{ movie.popularity }}"
+    [style]="{ width: '450px' }"
     styleClass="p-card-shadow">
     <ng-template pTemplate="header"> </ng-template>
+    <button
+      pButton
+      pRipple
+      icon="bi bi-play-circle"
+      type="button"
+      label="Watch Trailer"
+      class="p-button-raised p-button-info">
+    </button>
+    <h4>
+      Vote Average: {{ movie.vote_average }}
+      <br />
+      Release Date: {{ movie.release_date | date: 'mediumDate' }}
+    </h4>
     <p>
       {{ movie.overview }}
     </p>
