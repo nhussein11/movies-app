@@ -5,4 +5,7 @@ export const selectMovies =
   createFeatureSelector<ReadonlyArray<Movie>>('movies')
 
 export const selectMovieById = (id: number) =>
-  createSelector(selectMovies, movies => movies.find(movie => movie.id === id))
+  createSelector(selectMovies, movies => {
+    const movie = movies.find(movie => movie.id === id)
+    return movie ? movie : ({} as Movie)
+  })
