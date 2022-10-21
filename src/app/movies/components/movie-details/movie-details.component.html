@@ -1,3 +1,7 @@
-<p>
-  movie-details works!
-</p>
+<ng-container *ngIf="movie$ | async as movie">
+  <div>
+    <p>
+      {{movie | json}}
+    </p>
+  </div>
+</ng-container>
