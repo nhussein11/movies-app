@@ -1,14 +1,21 @@
-<ng-container *ngIf="movies$ | async as movies">
-  <div *ngFor="let movie of movies">
-    <ul style="display: inline">
-      <li>{{ movie.title }}</li>
+<section class="flex overflow-x-scroll">
+  <ng-container *ngIf="movies$ | async as movies">
+    <div *ngFor="let movie of movies" class="inline-block">
+      <h4>{{ movie.title }}</h4>
       <img
         src="https://image.tmdb.org/t/p/w300{{ movie.backdrop_path }}"
         alt=""
         (click)="movieSelected(movie.id)" />
-    </ul>
+    </div>
+  </ng-container>
+</section>
+
+<p-divider align="center">
+  <div class="inline-flex align-items-center">
+      <i class="bi bi-camera-reels-fill"></i>
   </div>
-</ng-container>
+</p-divider>
+
 
 <ng-container *ngIf="movieIdSelected">
   <app-movie-details [movieIdSelected]="movieIdSelected"></app-movie-details>
