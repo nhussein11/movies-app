@@ -4,7 +4,12 @@
       <li>{{ movie.title }}</li>
       <img
         src="https://image.tmdb.org/t/p/w300{{ movie.backdrop_path }}"
-        alt="" />
+        alt=""
+        (click)="movieSelected(movie.id)" />
     </ul>
   </div>
+</ng-container>
+
+<ng-container *ngIf="movieIdSelected">
+  <app-movie-details [movieIdSelected]="movieIdSelected"></app-movie-details>
 </ng-container>

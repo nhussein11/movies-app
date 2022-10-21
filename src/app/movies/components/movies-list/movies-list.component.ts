@@ -11,10 +11,16 @@ import * as MoviesActions from '../../../state/actions/movies.actions'
 })
 export class MoviesListComponent implements OnInit {
   movies$!: Observable<ReadonlyArray<Movie>>
+  movieIdSelected!: number
+
   constructor(private store: Store) {}
 
   ngOnInit() {
     this.store.dispatch(MoviesActions.loadMovies())
     this.movies$ = this.store.select(selectMovies)
+  }
+
+  movieSelected(id: number) {
+    this.movieIdSelected = id
   }
 }
