@@ -1,21 +1,38 @@
-<section class="flex overflow-x-scroll">
-  <ng-container *ngIf="movies$ | async as movies">
-    <div *ngFor="let movie of movies" class="inline-block">
-      <h4>{{ movie.title }}</h4>
-      <img
-        src="https://image.tmdb.org/t/p/w300{{ movie.backdrop_path }}"
-        alt=""
-        (click)="movieSelected(movie.id)" />
-    </div>
-  </ng-container>
-</section>
+<ng-container *ngIf="movies$ | async as movies">
+  <p-carousel
+    [value]="movies.slice()"
+    [numVisible]="4"
+    [numScroll]="1"
+    [circular]="true"
+    [autoplayInterval]="3000"
+    [responsiveOptions]="responsiveOptions">
+    <ng-template pTemplate="header">
+      <h5>Movies</h5>
+    </ng-template>
+    <ng-template let-movie pTemplate="item">
+      <div>
+        <div>
+          <div>
+            <img
+              src="https://image.tmdb.org/t/p/w300{{ movie.backdrop_path }}"
+              [alt]="movie.name"
+              (click)="movieSelected(movie.id)" />
+          </div>
+          <div>
+            <h4 class="mb-1">{{ movie.title }}</h4>
+            <span>{{ movie.release_date }}</span>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</ng-container>
 
 <p-divider align="center">
   <div class="inline-flex align-items-center">
-      <i class="bi bi-camera-reels-fill"></i>
+    <i class="bi bi-camera-reels-fill"></i>
   </div>
 </p-divider>
-
 
 <ng-container *ngIf="movieIdSelected">
   <app-movie-details [movieIdSelected]="movieIdSelected"></app-movie-details>
