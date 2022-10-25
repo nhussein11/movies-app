@@ -14,7 +14,7 @@ import { selectMovieById } from 'src/app/state/selectors/movies.selectors'
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
-  styleUrls: ['./movie-details.component.css'],
+  styleUrls: ['./movie-details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MovieDetailsComponent implements OnChanges {

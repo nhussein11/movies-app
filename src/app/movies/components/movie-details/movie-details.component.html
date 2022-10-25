@@ -1,25 +1,36 @@
 <ng-container *ngIf="movie$ | async as movie">
-  <p-card
-    header="{{ movie.title }}"
-    subheader="Overview: {{ movie.popularity }}"
-    [style]="{ width: '450px' }"
-    styleClass="p-card-shadow">
-    <ng-template pTemplate="header"> </ng-template>
-    <button
-      pButton
-      pRipple
-      icon="bi bi-play-circle"
-      type="button"
-      label="Watch Trailer"
-      class="p-button-raised p-button-info">
-    </button>
-    <h4>
-      Vote Average: {{ movie.vote_average }}
-      <br />
-      Release Date: {{ movie.release_date | date: 'mediumDate' }}
-    </h4>
-    <p>
-      {{ movie.overview }}
-    </p>
-  </p-card>
+  <div class="flex justify-content-center">
+    <div class="grid">
+      <p-card
+        header="{{ movie.title }}"
+        subheader="Overview: {{ movie.popularity }}"
+        [style]="{ width: '700px' }"
+        styleClass="p-card-shadow col-1">
+        <ng-template pTemplate="header"> </ng-template>
+        <div>
+          <button
+            pButton
+            pRipple
+            icon="bi bi-play-circle"
+            type="button"
+            label="Watch Trailer"
+            class="p-button-raised p-button-info m-3"></button>
+          <h4 class="m-3">
+            Vote Average: {{ movie.vote_average }}
+            <br />
+            Release Date: {{ movie.release_date | date: 'mediumDate' }}
+          </h4>
+        </div>
+        <p>
+          {{ movie.overview }}
+        </p>
+      </p-card>
+      <p-image
+        src="https://image.tmdb.org/t/p/w300{{ movie.backdrop_path }}"
+        alt="Image"
+        width="350"
+        class="col-2 m-3"
+        [preview]="true"></p-image>
+    </div>
+  </div>
 </ng-container>
