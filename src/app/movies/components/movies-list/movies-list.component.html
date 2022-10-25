@@ -7,20 +7,21 @@
     [autoplayInterval]="3000"
     [responsiveOptions]="responsiveOptions">
     <ng-template pTemplate="header">
-      <h5>Movies</h5>
+      <h1 class="p-1">Movies</h1>
     </ng-template>
     <ng-template let-movie pTemplate="item">
-      <div>
-        <div>
-          <div>
+      <div class="product-item">
+        <div class="product-item-content">
+          <div class="mb-3">
             <img
               src="https://image.tmdb.org/t/p/w300{{ movie.backdrop_path }}"
               [alt]="movie.name"
-              (click)="movieSelected(movie.id)" />
+              (click)="movieSelected(movie.id)"
+              class="product-image" />
           </div>
           <div>
             <h4 class="mb-1">{{ movie.title }}</h4>
-            <span>{{ movie.release_date }}</span>
+            <span>{{ movie.release_date | date: 'mediumDate' }}</span>
           </div>
         </div>
       </div>
