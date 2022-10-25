@@ -4,9 +4,20 @@ import { MoviesListComponent } from './components/movies-list/movies-list.compon
 import { MoviesRoutingModule } from './movies-routing.module'
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component'
 import { PrimengModule } from '../primeng/primeng.module'
+import { YouTubePlayerModule } from '@angular/youtube-player'
+import { MovieTrailerComponent } from './components/movie-trailer/movie-trailer.component'
 
 @NgModule({
-  imports: [CommonModule, MoviesRoutingModule, PrimengModule],
-  declarations: [MoviesListComponent, MovieDetailsComponent],
+  imports: [
+    CommonModule,
+    MoviesRoutingModule,
+    PrimengModule,
+    YouTubePlayerModule,
+  ],
+  declarations: [
+    MoviesListComponent,
+    MovieDetailsComponent,
+    MovieTrailerComponent,
+  ],
 })
 export class MoviesModule {}
