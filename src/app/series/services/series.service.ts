@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { map } from 'rxjs'
-import { ApiResponse, Serie } from 'src/app/shared/models/api.model'
+import { ApiResponse, Serie } from '@shared/models/api.model'
 import { environment } from 'src/environments/environment'
 
 @Injectable({
