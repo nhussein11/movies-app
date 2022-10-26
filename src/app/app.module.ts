@@ -7,12 +7,15 @@ import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
-import { SharedModule } from './shared/shared.module'
 import { HttpClientModule } from '@angular/common/http'
-import { ROOT_REDUCERS } from './state/app.state'
-import { MovieEffects } from './state/effects/movies.effects'
-import { SerieEffects } from './state/effects/series.effects'
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+import { SharedModule } from '@shared/shared.module'
+import { MovieEffects } from '@state/effects/movies.effects'
+import { SerieEffects } from '@state/effects/series.effects'
+import { ROOT_REDUCERS } from '@state/app.state'
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
