@@ -1,6 +1,6 @@
 <ng-container *ngIf="movies$ | async as movies">
   <p-carousel
-    [value]="movies.slice()"
+    [value]="movies.concat()"
     [numVisible]="4"
     [numScroll]="1"
     [circular]="true"
@@ -35,6 +35,6 @@
   </div>
 </p-divider>
 
-<ng-container *ngIf="movieIdSelected">
-  <app-movie-details [movieIdSelected]="movieIdSelected"></app-movie-details>
+<ng-container *ngIf="isMovieSelected">
+  <app-movie-details></app-movie-details>
 </ng-container>

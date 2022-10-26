@@ -11,7 +11,7 @@ import * as MoviesActions from '../../../state/actions/movies.actions'
 })
 export class MoviesListComponent implements OnInit {
   movies$!: Observable<ReadonlyArray<Movie>>
-  movieIdSelected!: number
+  isMovieSelected: boolean = false
 
   responsiveOptions = [
     {
@@ -36,9 +36,11 @@ export class MoviesListComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(MoviesActions.loadMovies())
     this.movies$ = this.store.select(selectMovies)
+    this.movies$.subscribe(console.log)
   }
 
-  movieSelected(id: number) {
-    this.movieIdSelected = id
+  movieSelected(movieId: number) {
+    this.store.dispatch(MoviesActions.selectMovie({ movieId }))
+    this.isMovieSelected = true
   }
 }
