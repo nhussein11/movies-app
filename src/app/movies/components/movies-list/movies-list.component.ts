@@ -36,7 +36,6 @@ export class MoviesListComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(MoviesActions.loadMovies())
     this.movies$ = this.store.select(selectMovies)
-    this.movies$.subscribe(console.log)
   }
 
   movieSelected(movieId: number) {
