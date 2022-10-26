@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { DialogService } from 'primeng/dynamicdialog'
 import { Observable } from 'rxjs'
-import { Movie } from 'src/app/shared/models/api.model'
-import { selectActiveMovie } from 'src/app/state/selectors/movies.selectors'
+import { Movie } from '@shared/models/api.model'
+import { selectActiveMovie } from '@state/selectors/movies.selectors'
 import { MovieTrailerComponent } from '../movie-trailer/movie-trailer.component'
 
 @Component({
