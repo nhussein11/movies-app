@@ -4,6 +4,14 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "paths": {
+      "@shared/*": ["src/app/shared/*"],
+      "@state/*": ["src/app/state/*"],
+      "@models/*": ["src/app/models/*"],
+      "@movies/*": ["src/app/movies/*"],
+      "@series/*": ["src/app/series/*"],
+      "@home/*": ["src/app/home/*"]
+    },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -18,10 +26,7 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ]
+    "lib": ["es2020", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
