@@ -2,6 +2,10 @@ import { createAction, props } from '@ngrx/store'
 import { Serie } from 'src/app/shared/models/api.model'
 
 export const loadSeries = createAction('[Series Page] Load Series')
+export const selectSerie = createAction(
+  '[Series Page] Select Serie',
+  props<{ serieId: number }>()
+)
 
 export const retrieveSeriesList = createAction(
   '[Series API] Retrieve Series Success',
