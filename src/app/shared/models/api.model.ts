@@ -4,7 +4,10 @@ export interface ApiResponse {
   total_pages: number
   total_results: number
 }
-
+export interface ApiVideoResponse {
+  id: number
+  results: Video[]
+}
 export interface Movie {
   adult: boolean
   backdrop_path: string
@@ -36,6 +39,18 @@ export interface Serie {
   poster_path: string
   vote_average: number
   vote_count: number
+}
+
+export interface Video {
+  id: string
+  iso_639_1: string
+  iso_3166_1: string
+  key: string
+  name: string
+  site: string
+  size: number
+  type: string
+  official: boolean
 }
 
 export enum OriginalLanguage {
