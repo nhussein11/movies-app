@@ -1,15 +1,9 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core'
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { DialogService } from 'primeng/dynamicdialog'
 import { Observable } from 'rxjs'
 import { Movie } from 'src/app/shared/models/api.model'
-import { selectMovieById } from 'src/app/state/selectors/movies.selectors'
+import { selectActiveMovie } from 'src/app/state/selectors/movies.selectors'
 import { MovieTrailerComponent } from '../movie-trailer/movie-trailer.component'
 
 @Component({
@@ -19,14 +13,13 @@ import { MovieTrailerComponent } from '../movie-trailer/movie-trailer.component'
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [DialogService],
 })
-export class MovieDetailsComponent implements OnChanges {
-  @Input() movieIdSelected!: number
-  movie$!: Observable<Movie>
+export class MovieDetailsComponent implements OnInit {
+  movie$!: Observable<Movie | undefined>
 
   constructor(private store: Store, public dialogService: DialogService) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.movie$ = this.store.select(selectMovieById(this.movieIdSelected))
+  ngOnInit(): void {
+    this.movie$ = this.store.select(selectActiveMovie)
   }
 
   watchTrailer() {
