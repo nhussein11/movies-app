@@ -10,7 +10,8 @@
       "@models/*": ["src/app/models/*"],
       "@movies/*": ["src/app/movies/*"],
       "@series/*": ["src/app/series/*"],
-      "@home/*": ["src/app/home/*"]
+      "@home/*": ["src/app/home/*"],
+      "@primeng/*": ["src/app/primeng/*"],
     },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
