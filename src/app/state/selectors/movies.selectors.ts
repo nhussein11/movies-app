@@ -1,6 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
-import { Movie } from 'src/app/shared/models/api.model'
-import { MoviesState } from '../app.state'
+import { MoviesState } from '@state/app.state'
 
 export const selectMoviesState = createFeatureSelector<MoviesState>('movies')
 

@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store'
-import { Movie } from 'src/app/shared/models/api.model'
+import { Movie } from '@shared/models/api.model'
 
 export const loadMovies = createAction('[Movies Page] Load Movies')
 export const selectMovie = createAction(

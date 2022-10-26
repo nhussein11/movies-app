@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store'
-import { Serie } from 'src/app/shared/models/api.model'
-import * as SeriesActions from '../actions/series.actions'
-import { SeriesState } from '../app.state'
+import { Serie } from '@shared/models/api.model'
+import { SeriesState } from '@state/app.state'
+import * as SeriesActions from '@state/actions/series.actions'
 
 export const initialState: SeriesState = {
   series: [] as ReadonlyArray<Serie>,

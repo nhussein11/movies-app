@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store'
-import { Serie } from 'src/app/shared/models/api.model'
+import { Serie } from '@shared/models/api.model'
 
 export const loadSeries = createAction('[Series Page] Load Series')
 export const selectSerie = createAction(
