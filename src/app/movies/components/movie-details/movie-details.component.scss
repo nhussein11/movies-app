@@ -2,6 +2,13 @@
   ::ng-deep {
     .p-card-body {
       min-width: 100%;
+      padding: 2rem;
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5),
+    }
+    .p-card-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
     }
     .p-card-content {
       display: flex;
@@ -15,10 +22,13 @@
     .p-card-content > div:nth-child(1) {
       flex-grow: 1;
       flex-basis: 0;
+      font-size: 1.3rem;
+
     }
     .p-card-content > p:nth-child(2) {
       flex-grow: 1;
       flex-basis: 0;
+      font-size: 1.5rem;
     }
   }
 }

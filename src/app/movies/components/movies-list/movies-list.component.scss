@@ -5,7 +5,13 @@
     margin: 0.3rem;
     text-align: center;
     padding: 1rem 0;
+    transition: all .3s ease-in-out;
   }
+  .movie-item-content:hover {
+    background-color: var(--surface-d);
+    cursor: pointer;
+    transform: scale(1.1);
+}
 }
 :host {
   ::ng-deep {
