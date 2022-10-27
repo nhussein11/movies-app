@@ -18,3 +18,8 @@ export const selectActiveMovie = createSelector(
   selectMovieById,
   (movies, movieId) => movies.find(movie => movie.id === movieId)
 )
+
+export const selectActiveVideoKey = createSelector(
+  selectMoviesState,
+  (state: MoviesState) => state.videoKey
+)
