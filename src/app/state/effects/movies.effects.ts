@@ -8,6 +8,11 @@ import * as MoviesActions from '@state/actions/movies.actions'
 
 @Injectable()
 export class MovieEffects {
+  constructor(
+    private actions$: Actions,
+    private _moviesService: MoviesService
+  ) {}
+
   loadMovies$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(MoviesActions.loadMovies),
@@ -22,8 +27,17 @@ export class MovieEffects {
     )
   })
 
-  constructor(
-    private actions$: Actions,
-    private _moviesService: MoviesService
-  ) {}
+  loadMovieVideo$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(MoviesActions.loadMovieVideo),
+      mergeMap(({ movieId }) =>
+        this._moviesService.getMovieTrailer(movieId).pipe(
+          map((videoKey: string) =>
+            MoviesActions.retrievedMovieVideo({ videoKey })
+          ),
+          catchError(() => of(MoviesActions.errorLoadingMovieVideo))
+        )
+      )
+    )
+  })
 }
