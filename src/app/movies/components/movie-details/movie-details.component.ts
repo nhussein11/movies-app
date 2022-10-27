@@ -23,9 +23,20 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   watchTrailer() {
-    const ref = this.dialogService.open(MovieTrailerComponent, {
+    this.dialogService.open(MovieTrailerComponent, {
       header: 'Trailer',
       width: '70%',
+      style: {
+        'min-width': '300px',
+        'min-height': '300px',
+        'max-height': '500px',
+        'max-width': '500px',
+        'overflow-y': 'auto',
+        'overflow-x': 'hidden',
+        'border-radius': '14px',
+        'box-shadow': '0 0 10px 0 rgba(0, 0, 0, 0.5)',
+        'background-color': 'rgba(0, 0, 0, 0.5)',
+      },
     })
   }
 }
