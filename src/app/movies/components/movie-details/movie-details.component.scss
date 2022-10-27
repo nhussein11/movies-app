@@ -1,16 +1,11 @@
 :host {
   ::ng-deep {
     .p-card-body {
-      padding: 0;
       min-width: 100%;
     }
-
     .p-card-content {
       display: flex;
       flex-wrap: wrap;
-      margin-right: -0.5rem;
-      margin-left: -0.5rem;
-      margin-top: -0.5rem;
     }
     .p-image-preview {
       transition: transform 0.15s;

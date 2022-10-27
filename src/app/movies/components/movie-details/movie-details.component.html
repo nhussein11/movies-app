@@ -4,7 +4,7 @@
       <p-card
         header="{{ movie.title }}"
         subheader="Overview: {{ movie.popularity }}"
-        [style]="{ width: '700px' }"
+        [style]="{ width: '800px' }"
         styleClass="p-card-shadow col-1">
         <ng-template pTemplate="header"> </ng-template>
         <div>
@@ -29,8 +29,8 @@
       <p-image
         src="https://image.tmdb.org/t/p/w300{{ movie.backdrop_path }}"
         alt="Image"
-        width="350"
-        class="col-2 m-3"
+        width="450"
+        class="col-2 p-5"
         [preview]="true"></p-image>
     </div>
   </div>

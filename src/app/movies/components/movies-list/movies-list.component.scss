@@ -1,9 +1,16 @@
 .movie-item {
-    .movie-item-content {
-        border: 1px solid var(--surface-d);
-        border-radius: 3px;
-        margin: .3rem;
-        text-align: center;
-        padding: 1rem 0;
+  .movie-item-content {
+    border: 1px solid var(--surface-d);
+    border-radius: 3px;
+    margin: 0.3rem;
+    text-align: center;
+    padding: 1rem 0;
+  }
+}
+:host {
+  ::ng-deep {
+    .p-divider {
+      margin-bottom: 5rem;
     }
+  }
 }
