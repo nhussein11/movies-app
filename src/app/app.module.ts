@@ -7,7 +7,7 @@ import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
@@ -15,6 +15,7 @@ import { SharedModule } from '@shared/shared.module'
 import { MovieEffects } from '@state/effects/movies.effects'
 import { SerieEffects } from '@state/effects/series.effects'
 import { ROOT_REDUCERS } from '@state/app.state'
+import { CachingInterceptor } from '@shared/interceptors/caching.interceptor'
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +32,13 @@ import { ROOT_REDUCERS } from '@state/app.state'
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CachingInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
