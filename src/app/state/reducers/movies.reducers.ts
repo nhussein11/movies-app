@@ -6,20 +6,27 @@ import * as MoviesActions from '@state/actions/movies.actions'
 export const initialState: MoviesState = {
   movies: [] as ReadonlyArray<Movie>,
   selectedMovieId: null,
+  videoKey: null,
 }
 
 export const moviesReducer = createReducer(
   initialState,
   on(MoviesActions.retrievedMoviesList, (state, { movies }): MoviesState => {
     return {
+      ...state,
       movies: [...state.movies, ...movies],
-      selectedMovieId: null,
     }
   }),
   on(MoviesActions.selectMovie, (state, { movieId }): MoviesState => {
     return {
       ...state,
       selectedMovieId: movieId,
+    }
+  }),
+  on(MoviesActions.retrievedMovieVideo, (state, { videoKey }): MoviesState => {
+    return {
+      ...state,
+      videoKey,
     }
   })
 )
