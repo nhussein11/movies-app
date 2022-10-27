@@ -10,7 +10,6 @@ import { map, Observable, Subscription } from 'rxjs'
 @Component({
   selector: 'app-movie-trailer',
   templateUrl: './movie-trailer.component.html',
-  styleUrls: ['./movie-trailer.component.scss'],
 })
 export class MovieTrailerComponent implements OnInit, OnDestroy {
   movieIdSubscription!: Subscription
