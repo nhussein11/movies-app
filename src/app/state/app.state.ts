@@ -6,6 +6,7 @@ import { seriesReducer } from './reducers/series.reducers'
 export interface MoviesState {
   movies: ReadonlyArray<Movie>
   selectedMovieId: number | null
+  videoKey: string | null
 }
 
 export interface SeriesState {
