@@ -6,6 +6,7 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog'
 import { NgModule } from '@angular/core'
 import { ImageModule } from 'primeng/image'
 import { TabMenuModule } from 'primeng/tabmenu'
+import { SplitterModule } from 'primeng/splitter'
 
 @NgModule({
   exports: [
@@ -16,6 +17,7 @@ import { TabMenuModule } from 'primeng/tabmenu'
     DynamicDialogModule,
     ImageModule,
     TabMenuModule,
+    SplitterModule,
   ],
 })
 export class PrimengModule {}
