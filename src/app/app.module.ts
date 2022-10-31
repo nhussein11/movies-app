@@ -25,7 +25,7 @@ import { CachingInterceptor } from '@shared/interceptors/caching.interceptor'
     EffectsModule.forRoot([MovieEffects, SerieEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
-      logOnly: environment.production,
+      logOnly: false,
     }),
     SharedModule,
     HttpClientModule,
