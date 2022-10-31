@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng config -- --environment=dev && ng serve",
+    "build": "ng config -- --environment=prod && ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
@@ -45,6 +45,7 @@
     "@types/jasmine": "~4.3.0",
     "@typescript-eslint/eslint-plugin": "5.41.0",
     "@typescript-eslint/parser": "5.41.0",
+    "dotenv": "^16.0.3",
     "esbuild": "^0.15.12",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
@@ -57,6 +58,7 @@
     "karma-jasmine-html-reporter": "~2.0.0",
     "prettier": "^2.7.1",
     "prettier-eslint": "^15.0.1",
-    "typescript": "~4.8.4"
+    "typescript": "~4.8.4",
+    "yargs": "^17.6.0"
   }
 }
