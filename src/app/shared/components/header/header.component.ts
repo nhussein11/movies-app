@@ -3,7 +3,7 @@ import { MenuItem } from 'primeng/api'
 
 @Component({
   selector: 'app-header',
-  template: ` <p-tabMenu [model]="items"></p-tabMenu> `,
+  template: ` <p-tabMenu [model]="items" styleClass="text-3xl"></p-tabMenu> `,
 })
 export class HeaderComponent implements OnInit {
   items!: MenuItem[]
