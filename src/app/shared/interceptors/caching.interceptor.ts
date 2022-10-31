@@ -22,7 +22,7 @@ export class CachingInterceptor implements HttpInterceptor {
     if (request.method !== 'GET') {
       return next.handle(request)
     }
-    console.log(request.url)
+
     const cachedResponse = this.cacheResolver.get(request.url)
     return cachedResponse ? of(cachedResponse) : this.sendRequest(request, next)
   }
