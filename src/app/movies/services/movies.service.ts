@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { map, Observable, tap } from 'rxjs'
-import { first } from 'rxjs/operators'
-import { environment } from 'src/environments/environment'
+
 import {
   ApiResponse,
   ApiVideoResponse,
@@ -17,7 +16,7 @@ export class MoviesService {
   constructor(private _http: HttpClient) {}
 
   getMovies(): Observable<Movie[]> {
-    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${environment.apiKey}&language=en-US&page=1`
+    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env['API_KEY']}&language=en-US&page=1`
 
     return this._http
       .get<ApiResponse>(url)
@@ -25,7 +24,7 @@ export class MoviesService {
   }
 
   getMovieTrailer(movieId: number): Observable<string> {
-    const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${environment.apiKey}&language=en-US`
+    const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${process.env['API_KEY']}&language=en-US`
 
     return this._http.get<ApiVideoResponse>(url).pipe(
       map(({ results }: ApiVideoResponse) => results),
