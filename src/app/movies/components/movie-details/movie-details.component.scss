@@ -1,9 +1,11 @@
 :host {
   ::ng-deep {
+    .p-card {
+      margin-bottom: 5rem;
+    }
     .p-card-body {
       min-width: 100%;
       padding: 2rem;
-      margin-bottom: 5rem;
       box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5),
     }
     .p-card-title {
