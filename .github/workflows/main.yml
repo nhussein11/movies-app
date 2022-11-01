@@ -27,7 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run lint --fix && npx prettier --write src/**/*.ts src/**/*.html src/**/*.scss 
-    run: |
+    - run: |
       echo "The GitHub Action Secret will be masked:  "
       echo ${{ secrets.THE_MOVIE_DB_API_KEY }}
     - run: npm run build
