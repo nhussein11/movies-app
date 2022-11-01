@@ -12,7 +12,7 @@ export class SerieEffects {
     return this.actions$.pipe(
       ofType(SeriesActions.loadSeries),
       mergeMap(() =>
-        this._seriesService.getSeries().pipe(
+        this._seriesService.getSeriesWithGenres().pipe(
           map((series: Serie[]) =>
             SeriesActions.retrieveSeriesList({ series })
           ),
