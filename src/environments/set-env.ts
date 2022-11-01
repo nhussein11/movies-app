@@ -13,7 +13,6 @@ const prodEnvConfigFile = `export const environment = {
 const setEnv = () => {
   const fs = require('fs')
   const writeFile = fs.writeFile
-  console.log(process.env)
   console.log(
     'The file `environment.ts` will be written with the following content: \n'
   )
