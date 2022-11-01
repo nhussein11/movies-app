@@ -1,37 +1,42 @@
 <ng-container *ngIf="movie$ | async as movie">
   <div class="flex justify-content-center">
-    <div class="grid">
-      <p-card
-        header="{{ movie.title }}"
-        subheader="Overview: {{ movie.popularity }}"
-        [style]="{ width: '800px' }"
-        styleClass="p-card-shadow col-1">
-        <ng-template pTemplate="header"> </ng-template>
-        <div>
-          <button
-            pButton
-            pRipple
-            icon="bi bi-play-circle"
-            type="button"
-            label="Watch Trailer"
-            class="p-button-raised p-button-info m-3"
-            (click)="watchTrailer()"></button>
-          <h4 class="m-3">
-            Vote Average: {{ movie.vote_average }}
-            <br />
-            Release Date: {{ movie.release_date | date: 'mediumDate' }}
-          </h4>
-        </div>
-        <p>
-          {{ movie.overview }}
-        </p>
-      </p-card>
-      <p-image
-        src="https://image.tmdb.org/t/p/w300{{ movie.backdrop_path }}"
-        alt="Image"
-        width="450"
-        class="col-2 p-5"
-        [preview]="true"></p-image>
+    <div class="grid align-content-center">
+      <div class="col align-self-center">
+        <p-card
+          header="{{ movie.title }}"
+          subheader="Overview: {{ movie.popularity }}"
+          [style]="{ width: '800px' }"
+          styleClass="p-card-shadow ">
+          <ng-template pTemplate="header"> </ng-template>
+          <div>
+            <button
+              pButton
+              pRipple
+              icon="bi bi-play-circle"
+              type="button"
+              label="Watch Trailer"
+              class="p-button-raised p-button-info m-3"
+              (click)="watchTrailer()"></button>
+            <h4 class="m-3">
+              Vote Average: {{ movie.vote_average }}
+              <br />
+              Release Date: {{ movie.release_date | date: 'mediumDate' }}
+            </h4>
+          </div>
+          <p class="text-justify">
+            {{ movie.overview }}
+          </p>
+        </p-card>
+      </div>
+
+      <div class="col align-self-center">
+        <p-image
+          src="https://image.tmdb.org/t/p/original{{ movie.backdrop_path }}"
+          alt="Image"
+          width="450"
+          class=""
+          [preview]="true"></p-image>
+      </div>
     </div>
   </div>
 </ng-container>

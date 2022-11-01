@@ -1,12 +1,9 @@
 :host {
   ::ng-deep {
-    .p-card {
-      margin-bottom: 5rem;
-    }
     .p-card-body {
       min-width: 100%;
       padding: 2rem;
-      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5),
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
     }
     .p-card-title {
       font-size: 2rem;
@@ -17,16 +14,18 @@
       display: flex;
       flex-wrap: wrap;
     }
+    .p-image-mask {
+      padding: 15rem 15rem;
+    }
     .p-image-preview {
       transition: transform 0.15s;
-      min-width: 50vw;
-      min-height: 50vh;
+      max-width: 75vw;
+      max-height: 75vh;
     }
     .p-card-content > div:nth-child(1) {
       flex-grow: 1;
       flex-basis: 0;
       font-size: 1.3rem;
-
     }
     .p-card-content > p:nth-child(2) {
       flex-grow: 1;
