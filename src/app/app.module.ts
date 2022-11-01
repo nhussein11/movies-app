@@ -15,6 +15,7 @@ import { MovieEffects } from '@state/effects/movies.effects'
 import { SerieEffects } from '@state/effects/series.effects'
 import { ROOT_REDUCERS } from '@state/app.state'
 import { CachingInterceptor } from '@shared/interceptors/caching.interceptor'
+import { environment } from 'src/environments/environment'
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +26,7 @@ import { CachingInterceptor } from '@shared/interceptors/caching.interceptor'
     EffectsModule.forRoot([MovieEffects, SerieEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
-      logOnly: false,
+      logOnly: environment.production,
     }),
     SharedModule,
     HttpClientModule,
