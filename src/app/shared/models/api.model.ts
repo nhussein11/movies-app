@@ -41,6 +41,10 @@ export interface Serie {
   vote_count: number
 }
 
+export interface Genre {
+  id: number
+  name: string
+}
 export interface Video {
   id: string
   iso_639_1: string
