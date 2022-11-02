@@ -21,7 +21,7 @@ export class MovieEffects {
           map((movies: Movie[]) =>
             MoviesActions.retrievedMoviesList({ movies })
           ),
-          catchError(() => of(MoviesActions.errorLoadingMovies))
+          catchError(() => of(MoviesActions.errorLoadingMovies()))
         )
       )
     )
@@ -35,7 +35,7 @@ export class MovieEffects {
           map((videoKey: string) =>
             MoviesActions.retrievedMovieVideo({ videoKey })
           ),
-          catchError(() => of(MoviesActions.errorLoadingMovieVideo))
+          catchError(() => of(MoviesActions.errorLoadingMovieVideo()))
         )
       )
     )
