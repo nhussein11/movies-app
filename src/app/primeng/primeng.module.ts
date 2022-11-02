@@ -4,6 +4,7 @@ import { CardModule } from 'primeng/card'
 import { DividerModule } from 'primeng/divider'
 import { DynamicDialogModule } from 'primeng/dynamicdialog'
 import { NgModule } from '@angular/core'
+import { InputTextModule } from 'primeng/inputtext'
 import { ImageModule } from 'primeng/image'
 import { TabMenuModule } from 'primeng/tabmenu'
 import { TagModule } from 'primeng/tag'
@@ -16,6 +17,7 @@ import { SplitterModule } from 'primeng/splitter'
     CarouselModule,
     DividerModule,
     DynamicDialogModule,
+    InputTextModule,
     ImageModule,
     TabMenuModule,
     TagModule,
