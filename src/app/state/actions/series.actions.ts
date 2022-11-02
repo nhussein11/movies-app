@@ -15,3 +15,8 @@ export const retrieveSeriesList = createAction(
 export const errorLoadingSeries = createAction(
   '[Series API] Series Loaded Error'
 )
+
+export const searchSerie = createAction(
+  '[Series Page] Search Serie',
+  props<{ search: string }>()
+)
