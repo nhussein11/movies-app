@@ -44,4 +44,14 @@ export class SeriesService {
       })
     )
   }
+
+  getSeriesBySearch(search: string) {
+    return this.http
+      .get<ApiResponse>(
+        `
+        https://api.themoviedb.org/3/search/tv?api_key=${environment.apiKey}&language=en-US&query=${search}
+        `
+      )
+      .pipe(map((data: ApiResponse) => data.results as Serie[]))
+  }
 }
