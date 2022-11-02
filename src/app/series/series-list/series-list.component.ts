@@ -8,7 +8,6 @@ import * as SeriesActions from '@state/actions/series.actions'
 @Component({
   selector: 'app-series',
   templateUrl: './series-list.component.html',
-  styleUrls: ['./series-list.component.scss'],
 })
 export class SeriesListComponent implements OnInit {
   series$!: Observable<ReadonlyArray<Serie>>
