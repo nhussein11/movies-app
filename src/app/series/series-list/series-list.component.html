@@ -1,0 +1,11 @@
+<ng-container *ngIf="series$ | async as series">
+  <div *ngFor="let serie of series">
+    <ul>
+      <li>{{ serie.name }}</li>
+      <p> {{serie.genre_ids}}</p>
+      <img
+        src="https://image.tmdb.org/t/p/w300{{ serie.backdrop_path }}"
+        alt="" />
+    </ul>
+  </div>
+</ng-container>
