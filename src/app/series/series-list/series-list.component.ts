@@ -17,6 +17,5 @@ export class SeriesListComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(SeriesActions.loadSeries())
     this.series$ = this.store.select(selectSeries)
-    this.series$.subscribe(series => console.log(series))
   }
 }
