@@ -1,0 +1,14 @@
+<div class="p-inputgroup w-30rem">
+  <button
+    type="button"
+    pButton
+    pRipple
+    label="Search"
+    (click)="searchSerie()"></button>
+  <input
+    type="text"
+    pInputText
+    placeholder="Keyword/s..."
+    (keyup.enter)="searchSerie()" 
+    [formControl]="searchControl"/>
+</div>
