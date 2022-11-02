@@ -25,4 +25,17 @@ export class SerieEffects {
       )
     )
   })
+  loadSeriesBySearch$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(SeriesActions.searchSerie),
+      mergeMap(action =>
+        this._seriesService.getSeriesBySearch(action.search).pipe(
+          map((series: Serie[]) =>
+            SeriesActions.retrieveSeriesList({ series })
+          ),
+          catchError(() => of(SeriesActions.errorLoadingSeries()))
+        )
+      )
+    )
+  })
 }
