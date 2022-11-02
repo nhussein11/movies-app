@@ -8,6 +8,7 @@ import * as SeriesActions from '@state/actions/series.actions'
 @Component({
   selector: 'app-series',
   templateUrl: './series-list.component.html',
+  styleUrls: ['./series-list.component.scss'],
 })
 export class SeriesListComponent implements OnInit {
   series$!: Observable<ReadonlyArray<Serie>>
@@ -17,5 +18,6 @@ export class SeriesListComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(SeriesActions.loadSeries())
     this.series$ = this.store.select(selectSeries)
+    this.series$.subscribe(series => console.log(series))
   }
 }

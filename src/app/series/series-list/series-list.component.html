@@ -1,11 +1,31 @@
 <ng-container *ngIf="series$ | async as series">
-  <div *ngFor="let serie of series">
-    <ul>
-      <li>{{ serie.name }}</li>
-      <p> {{serie.genre_ids}}</p>
-      <img
-        src="https://image.tmdb.org/t/p/w300{{ serie.backdrop_path }}"
-        alt="" />
-    </ul>
+  <div class="flex justify-content-center align-items-center m-2">
+    <div class="card">
+      <div class="flex flex-wrap">
+        <ng-container *ngFor="let serie of series">
+          <p-card class="m-4 w-22rem">
+            <ng-template pTemplate="header">
+              <div class="flex justify-content-center align-items-center pt-5">
+                <div
+                  class="white-space-nowrap overflow-hidden text-overflow-ellipsis text-justify text-xl font-bold"
+                  style="width: 250px">
+                  {{ serie.name }}
+                </div>
+              </div>
+            </ng-template>
+            <ng-container *ngFor="let genre of serie.genre_ids">
+                <p-tag
+                  value="{{ genre }}"
+                  class="pr-3 justify-content-center  "
+                  [style]="{ 'font-size': '0.9rem','margin-top': '0.4rem' }"></p-tag>
+            </ng-container>
+            <p></p>
+            <img
+              src="https://image.tmdb.org/t/p/w300{{ serie.backdrop_path }}"
+              alt="" />
+          </p-card>
+        </ng-container>
+      </div>
+    </div>
   </div>
 </ng-container>
