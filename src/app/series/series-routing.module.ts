@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { SeriesComponent } from './series.component'
+import { SeriesListComponent } from './series-list/series-list.component'
 
-const routes: Routes = [{ path: '', component: SeriesComponent }]
+const routes: Routes = [{ path: '', component: SeriesListComponent }]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
