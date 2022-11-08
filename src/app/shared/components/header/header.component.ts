@@ -28,6 +28,12 @@ export class HeaderComponent implements OnInit {
         replaceUrl: true,
         routerLink: '/series',
       },
+      {
+        label: 'Actors',
+        icon: 'bi bi-person-video',
+        replaceUrl: true,
+        routerLink: '/actors',
+      },
     ]
   }
 }
