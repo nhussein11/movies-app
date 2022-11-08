@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
   HttpResponse,
 } from '@angular/common/http'
-import { Observable, of, tap } from 'rxjs'
+import { map, Observable, of, tap } from 'rxjs'
 import { CacheResolverService } from '@shared/services/cache-resolver.service'
 
 const HALF_HOUR = 1800
@@ -22,7 +22,6 @@ export class CachingInterceptor implements HttpInterceptor {
     if (request.method !== 'GET') {
       return next.handle(request)
     }
-
     const cachedResponse = this.cacheResolver.get(request.url)
     return cachedResponse ? of(cachedResponse) : this.sendRequest(request, next)
   }
@@ -32,10 +31,11 @@ export class CachingInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
-      tap(event => {
+      map((event: HttpEvent<unknown>) => {
         if (event instanceof HttpResponse) {
           this.cacheResolver.set(request.url, event, TIME_TO_LIVE)
         }
+        return event
       })
     )
   }
