@@ -13,7 +13,7 @@ export const actorsReducer = createReducer(
   on(ActorsActions.retrievedActorsList, (state, { actors }): ActorsState => {
     return {
       ...state,
-      actors: [...state.actors, ...actors],
+      actors: [...actors],
     }
   }),
   on(ActorsActions.selectActor, (state, { actorId }): ActorsState => {
