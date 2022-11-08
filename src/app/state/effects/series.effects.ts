@@ -17,10 +17,13 @@ export class SerieEffects {
       ofType(SeriesActions.loadSeries),
       mergeMap(() =>
         this._seriesService.getSeriesWithGenres().pipe(
-          map((series: Serie[]) =>
+          map((series: ReadonlyArray<Serie>) =>
             SeriesActions.retrieveSeriesList({ series })
           ),
-          catchError(() => of(SeriesActions.errorLoadingSeries()))
+          catchError(error => {
+            console.log(error)
+            return of(SeriesActions.errorLoadingSeries())
+          })
         )
       )
     )
@@ -29,7 +32,7 @@ export class SerieEffects {
     return this.actions$.pipe(
       ofType(SeriesActions.searchSerie),
       mergeMap(action =>
-        this._seriesService.getSeriesBySearch(action.search).pipe(
+        this._seriesService.getSeriesBySearchWithGenres(action.search).pipe(
           map((series: Serie[]) =>
             SeriesActions.retrieveSeriesList({ series })
           ),
