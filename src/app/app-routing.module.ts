@@ -17,6 +17,11 @@ const routes: Routes = [
       import('./series/series.module').then(m => m.SeriesModule),
   },
   {
+    path: 'actors',
+    loadChildren: () =>
+      import('./actors/actors.module').then(m => m.ActorsModule),
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',
