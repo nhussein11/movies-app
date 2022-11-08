@@ -11,8 +11,8 @@ export const seriesReducer = createReducer(
   initialState,
   on(SeriesActions.retrieveSeriesList, (state, { series }): SeriesState => {
     return {
+      ...state,
       series: [...series],
-      selectedSerieId: null,
     }
   }),
   on(SeriesActions.selectSerie, (state, { serieId }): SeriesState => {
