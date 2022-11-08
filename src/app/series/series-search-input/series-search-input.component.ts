@@ -14,19 +14,27 @@ export class SeriesSearchInputComponent implements OnInit {
   constructor(private store: Store) {}
   ngOnInit(): void {
     this.searchControl = new FormControl('')
-    this.searchControl.valueChanges
-      .pipe(debounceTime(400), distinctUntilChanged())
-      .subscribe(query => {
-        console.log(query)
-        this.store.dispatch(SeriesActions.searchSerie({ search: query }))
-      })
   }
 
-  searchSerie(): void {
-    if (this.searchControl.value) {
+  searchSerie(event: KeyboardEvent | MouseEvent): void {
+    if (event instanceof MouseEvent) {
       this.store.dispatch(
         SeriesActions.searchSerie({ search: this.searchControl.value })
       )
+      return
+    }
+    if (event.key === 'Enter') {
+      this.store.dispatch(
+        SeriesActions.searchSerie({ search: this.searchControl.value })
+      )
+      return
+    }
+    if (
+      (event.key === 'Delete' || event.key === 'Backspace') &&
+      !this.searchControl.value
+    ) {
+      this.store.dispatch(SeriesActions.loadSeries())
+      return
     }
   }
 }

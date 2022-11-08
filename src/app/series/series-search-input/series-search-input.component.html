@@ -4,11 +4,11 @@
     pButton
     pRipple
     label="Search"
-    (click)="searchSerie()"></button>
+    (click)="searchSerie($event)"></button>
   <input
     type="text"
     pInputText
     placeholder="Keyword/s..."
-    (keyup.enter)="searchSerie()" 
+    (keyup)="searchSerie($event)"
     [formControl]="searchControl"/>
 </div>
