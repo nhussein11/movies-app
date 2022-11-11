@@ -1,0 +1,18 @@
+<ng-container *ngIf="actors$ | async as actors">
+  <div class="grid">
+    <div class="col-6">
+      <div *ngFor="let actor of actors">
+        <app-actor-card
+          [actor]="actor"
+          (click)="selectActor(actor)"
+          ></app-actor-card>
+      </div>
+    </div>
+    <ng-container *ngIf="(actorSelected | keyvalue)?.length">
+      <div class="col-6">
+        <app-actor-details [actor]="actorSelected"></app-actor-details>
+      </div>
+    </ng-container>
+
+  </div>
+</ng-container>
