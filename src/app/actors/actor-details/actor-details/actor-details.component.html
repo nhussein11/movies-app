@@ -1,0 +1,21 @@
+<div class="m-4 w-16rem">
+  <p-card>
+    <ng-template pTemplate="header">
+      <p></p>
+      <img
+        src="https://image.tmdb.org/t/p/w200{{ actor.profile_path }}"
+        alt="" />
+    </ng-template>
+    <ng-template pTemplate="content">
+      <div class="flex justify-content-center align-items-center pt-5">
+        <div class="text-justify text-xl font-bold">
+          {{ actor.name }}
+
+        </div>
+      </div>
+    </ng-template>
+  </p-card>
+</div>
+<!-- <pre>
+  {{ actor | json }}
+</pre> -->
