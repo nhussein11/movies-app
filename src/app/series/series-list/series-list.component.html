@@ -3,9 +3,9 @@
 </div>
 
 <ng-container *ngIf="series$ | async as series">
-  <div class="flex justify-content-center align-items-center m-2">
+  <div class="flex justify-content-center align-items-center m-1 ">
     <div class="card">
-      <div class="flex flex-wrap">
+      <div class="flex flex-wrap justify-content-center">
         <ng-container *ngFor="let serie of series">
           <app-serie-card [serie]="serie"></app-serie-card>
         </ng-container>
