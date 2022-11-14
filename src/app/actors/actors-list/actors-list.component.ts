@@ -56,7 +56,6 @@ export class ActorsListComponent implements OnInit {
   selectActor(actor: Actor) {
     this.dialogService.open(ActorDetailsComponent, {
       data: actor,
-      header: actor.name,
       width: '40%',
       styleClass: 'actor-details',
     })
