@@ -1,0 +1,10 @@
+// Add border to the dialog header
+:host {
+  ::ng-deep {
+    .p-dialog {
+      .p-dialog-header {
+        border-bottom: 2px solid red !important;
+      }
+    }
+  }
+}

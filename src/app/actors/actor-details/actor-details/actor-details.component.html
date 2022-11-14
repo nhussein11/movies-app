@@ -1,21 +1,27 @@
-<div class="m-4 w-16rem">
-  <p-card>
-    <ng-template pTemplate="header">
-      <p></p>
+<div class="card flex justify-content-center">
+  <div class="card-container grid">
+    <div class="col mt-4 pt-2">
+      <h2 class="block text-lg font-bold">
+        Known For: {{ actor.known_for_department }}
+      </h2>
+      <h2 class="block text-lg font-bold">
+        Popularity: {{ actor.popularity }}
+      </h2>
+      <h2 class="block text-lg font-bold">Known For:</h2>
+
+      <ul class="block">
+        <ng-container *ngFor="let appearance of actor.known_for">
+          <li class="text-lg font-bold">
+            {{ appearance.original_title }}: {{ appearance.vote_average }}
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="col p-5">
       <img
+        class="inline h-12rem border-2"
         src="https://image.tmdb.org/t/p/w200{{ actor.profile_path }}"
         alt="" />
-    </ng-template>
-    <ng-template pTemplate="content">
-      <div class="flex justify-content-center align-items-center pt-5">
-        <div class="text-justify text-xl font-bold">
-          {{ actor.name }}
-
-        </div>
-      </div>
-    </ng-template>
-  </p-card>
+    </div>
+  </div>
 </div>
-<!-- <pre>
-  {{ actor | json }}
-</pre> -->
