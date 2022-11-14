@@ -1,18 +1,15 @@
 <ng-container *ngIf="actors$ | async as actors">
-  <div class="grid">
-    <div class="col-6">
-      <div *ngFor="let actor of actors">
-        <app-actor-card
-          [actor]="actor"
-          (click)="selectActor(actor)"
-          ></app-actor-card>
-      </div>
+  <div
+    class="flex flex-wrap justify-content-center align-items-center m-2"    
+    >
+    <div *ngFor="let actor of actors">
+      <app-actor-card
+        [actor]="actor"
+        (click)="selectActor(actor)"></app-actor-card>
     </div>
-    <ng-container *ngIf="(actorSelected | keyvalue)?.length">
-      <div class="col-6">
-        <app-actor-details [actor]="actorSelected"></app-actor-details>
-      </div>
-    </ng-container>
-
+    <!-- <ng-container *ngIf="openDetails === 'open'">
+      <app-actor-details [actor]="actorSelected"></app-actor-details>
+    </ng-container> -->
   </div>
 </ng-container>
+<!-- [ngStyle]="{ 'background-filter': openDetails === 'open' ? 'blur(10px)' : 'blur(0px)' }"     -->
